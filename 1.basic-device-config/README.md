@@ -3,20 +3,23 @@
 ## Concepts
 - Switch Boot Sequence
 
+---
 
 ## Switch Basic BOOT Sequence
 
 When a Cisco device is powered on, it goes through these 5 steps:
 
 ### Step 1: Power-On Self-Test (POST)
-- Switch loads a POST program stored in ROM [non-volatile, Read-Only memory, stores essential program/firmware for device boot]
-- POST tests:
-  - CPU 
-    1. can execute instructions
-    2. read/write to memory
-    3. check for device faults/damages
-  - DRAM [Dynamic RAM, volatile memory, ]
-    1. write and read back data to memory
-    2. 
-  - Flash device (flash file system)
-  
+- Switch loads a POST program stored in ROM (non-volatile, Read-Only Memory, stores essential program/firmware for device boot).
+
+#### POST Tests:
+1. **CPU**
+  - Can execute instructions.
+  - Read/write to memory.
+  - Check for device faults/damages.
+
+2. **DRAM** (Dynamic RAM, volatile memory, critical to switch operation)
+  - Write and read back data to memory.
+
+3. **Flash Device** (flash file system)
+  - Checks the integrity of stored files and the presence of the IOS image.
