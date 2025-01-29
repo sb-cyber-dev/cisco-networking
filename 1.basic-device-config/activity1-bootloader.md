@@ -48,5 +48,43 @@ Parameter Block Filesystem (pb:) installed, fsid: 4
 
 ## Bypass Startup Configuration
 
+#### Prevent switch from loading the startup configuration
+
+```aiignore
+switch: confreg 0x2142
+```
+
+#### (Alt) Prevent startup configuration from loading by changing name
+```
+switch: dir flash:
+Directory of flash:/
+
+2    -rwx  2664051   <date>               c2950-i6q4l2-mz.121-11.EA1.bin
+3    -rwx  1460      <date>               config.text
+4    -rwx  5         <date>               private-config.text
+7    drwx  704       <date>               html
+19   -rwx  109       <date>               info
+20   -rwx  109       <date>               info.ver
+
+3780096 bytes available (3961344 bytes used)
+switch: rename flash:config.text flash:config.text.old
+switch: dir flash:
+Directory of flash:/
+
+2    -rwx  2664051   <date>               c2950-i6q4l2-mz.121-11.EA1.bin
+3    -rwx  1460      <date>               config.text.old
+4    -rwx  5         <date>               private-config.text
+7    drwx  704       <date>               html
+19   -rwx  109       <date>               info
+20   -rwx  109       <date>               info.ver
+
+3780096 bytes available (3961344 bytes used)
+
+switch: boot
+```
+```aiignore
+Switch#rename flash:config.text.old flash:config.text
+Switch#reload
+```
 
 

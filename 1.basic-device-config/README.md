@@ -1,5 +1,7 @@
 # Chapter 1: Basic Device Configuration
 
+---
+
 ## Concepts
 - Switch Boot Sequence
 
@@ -9,10 +11,19 @@
 
 When a Cisco device is powered on, it goes through these 5 steps:
 
+---
+
 ### Step 1: Power-On Self-Test (POST)
 - Switch loads a POST program stored in ROM (non-volatile, Read-Only Memory, stores essential program/firmware for device boot).
 
 #### POST Tests:
+
+*Limited console logs available by default, see [diagnostics output](./activity2-POST_diagnostics) for further output.*
+
+
+
+
+
 1. **CPU**
   - Can execute instructions.
   - Read/write to memory.
