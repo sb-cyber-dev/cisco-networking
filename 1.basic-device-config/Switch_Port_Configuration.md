@@ -125,6 +125,69 @@ show interfaces GigabitEthernet0/1
 
 ## Auto-MDIX (Automatic Medium-Dependent Interface Crossover) Feature
 
+- Enabled on an interface = configures connection appropriately (crossover/straight-through)
+  - Either type of cable can be used to connect to other devices
+  - (REQ) interface speed and duplex must be set to AUTO
+
+
+```aiignore
+S1(config-if)# mdix auto
+
+show interfaces FastEthernet0/1 status
+
+show controllers ethernet-controller fa0/1 phy | include MDIX
+```
+
+
+
+---
+
+## Check Network Access Layer Status
+
+```aiignore
+S1# show interfaces fastEthernet 0/18
+FastEthernet0/18 is up, line protocol is up (connected)
+Hardware is Fast Ethernet, address is 0025.83e6.9092 (bia 0025.83e6.9092)MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
+```
+
+- (FastEthernet0/18 is up) = hardware layer, interface is receiving carrier detect signal.
+- (line protocol is up) = data link layer and indicates whether data link layer protocol keepalives are being received.
+
+### Troubleshoot
+
+- Interface UP, line protocol DOWN = error or hardware problem
+- Interface DOWN, line protocol DOWN = cable connection issue or other end is down, speed mismatch
+- interface administratively DOWN = Has been manually disabled
+
+
+### "show interfaces" command Error Fields
+
+- Input Errors = Total # of errors, incl runts, giants, no buffer, frame, overrun, and ignred counts.
+- Runts = Discarded frames because are smaller than minimum frame size for medium.
+  - Usually caused by malfunctioning NIC or collisions
+- Giants = Discarded frames because exceed max frame size for medium. 
+- CRC = calculated checksum is not same as checksum received
+  - Usually caused by media or cable error. Too much noise. 
+- Output errors = Sum of all errors preventing final transmission of datagrams out of current interface
+- Collisions = # of messages retransmitted because of Ethernet collision
+  - Collisions are normal for half duplex
+  - Should NEVER see collisions in full duplex
+- Late Collisions = Collision after 512 bits of frame transmitted
+  - excessive cable length
+  - duplex mismatch
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

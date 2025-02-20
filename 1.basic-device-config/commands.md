@@ -73,7 +73,51 @@ S1#copy running-config startup-config
 Determine status of both physical and virtual interfaces
 
 ```aiignore
-S1# show ip interface brief
-S1# show ipv6 interface brief
+show ip interface brief
+show ipv6 interface brief
+
+show ip interface [interface-id]
+show ipv6 interface [interface-id]
+
+
+show interfaces [fastEthernet 0/18]
+
+show startup-config
+
+show running-config
+
+show flash
+
+(show system hw/sw status)
+show version
+
+(Display history of commands entered)
+show history 
+
+show mac-address-table
+show mac address-table
+
+
+show ip ssh
+show ssh
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

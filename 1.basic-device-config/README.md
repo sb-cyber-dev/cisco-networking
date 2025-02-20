@@ -8,4 +8,3 @@
 
 - Switch Initial Settings
 - Switch Port Configuration
-- 
