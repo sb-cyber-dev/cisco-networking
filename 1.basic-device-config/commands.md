@@ -76,8 +76,13 @@ Determine status of both physical and virtual interfaces
 show ip interface brief
 show ipv6 interface brief
 
+show ip route
+show ipv6 route
+
 show ip interface [interface-id]
 show ipv6 interface [interface-id]
+
+show running-config interface [interface-id]
 
 
 show interfaces [fastEthernet 0/18]
@@ -104,7 +109,27 @@ show ssh
 ```
 
 
+---
 
+## Change ipv6 address on interface
+
+Must remove unwanted ipv6 address, as interfaces can support more than one ipv6 address
+
+```aiignore
+int g0/0/1
+no ipv6 address 2001:db8:1234:5678::1/64
+```
+
+---
+
+## Enable IPv6 Routing (On Routers)
+
+```aiignore
+ipv6 unicast-routing
+ipv6 address 2001:db8:1::1/64
+ipv6 address fe80::1 link-local
+no shutdown
+```
 
 
 
